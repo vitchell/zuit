@@ -156,7 +156,12 @@ h2 {
   line-height: 40px;
   color: $font-header-color;
 }
-h3 {}
+h3 {
+  font-family: $serif-font;
+  font-size: 48px;
+  line-height: 60px;
+  color: $font-header-color;
+}
 h4 {}
 h5 {}
 h6 {}
@@ -173,6 +178,10 @@ strong { font-weight: 700; }
 em { font-style: italic; }
 
 p {}
+p.zu-paragraph-subheader {
+  font-size: 18px;
+  line-height: 30px;
+}
 
 label {
   display: inline-block;
@@ -291,11 +300,10 @@ button:before {
     width: 100%;
     .zu-container {
       display: block;
-      padding: 0 20px;
       margin: 0 auto;
       @include legacy-pie-clearfix;
       @include screen-format(monitor) {
-        width: $monitor-breakpoint - 40px; // The subtraction of 40px accounts for the container padding.
+        width: $monitor-breakpoint;
       }
     }
   }
@@ -315,6 +323,8 @@ section#zu-top-bar {
 }
 nav#zu-navigation {
   text-align: center;
+  position: relative;
+  @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.05));
   a#zu-home-logo {
     margin: 0 auto;
   }
@@ -344,6 +354,8 @@ nav#zu-navigation {
 section#zu-section-header {
   height: 565px;
   text-align: center;
+  background: #ffffff image-url("header-background-1.jpg") repeat-x center 0;
+  @include box-shadow(0 -1px 0 rgba(0, 0, 0, 0.05) inset);
   h1 {
     @include prefix(5);
     @include span-columns(7 omega, 12);
@@ -362,9 +374,79 @@ section#zu-section-header {
     @include prefix(5);
     @include span-columns(7 omega, 12);
   }
+  a#zu-cta {
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 300;
+    font-style: italic;
+    text-decoration: underline;
+    color: $red-2;
+    @include prefix(5);
+    @include span-columns(7 omega, 12);
+  }
+  a#zu-cta:hover {
+    text-decoration: none;
+  }
 }
 
-
+section#zu-shop {
+  h3 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    font-weight: 300;
+    @include prefix(3);
+    @include suffix(3);
+    @include span-columns(6 omega, 12);
+  }
+  ul#zu-shop-tiles {
+    @include span-columns(12 omega, 12);
+    li.zu-shop-tile {
+      height: 691px;
+      @include span-columns(4, 12);
+      .zu-shop-tile-header {
+        display: block;
+        float: left;
+        width: 100%;
+        .zu-shop-tile-name {
+          display: block;
+          float: left;
+          font-family: $serif-font;
+          font-size: 42px;
+          line-height: 40px;
+          span {
+            font-size: 14px;
+            color: $red-2;
+          }
+        }
+        .zu-shop-tile-price {
+          display: block;
+          float: right;
+          font-family: $serif-font;
+          font-size: 24px;
+          line-height: 40px;
+          text-align: right;
+          position: relative;
+          top: 7px;
+        }
+      }
+      .zu-shop-tile-subheader {
+        display: block;
+        float: left;
+        width: 100%;
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: 300;
+          position: relative;
+          top: -5px;
+      }
+    }
+    li.zu-shop-tile:nth-child(3n) {
+      @include span-columns(4 omega, 12);
+    }
+  }
+}
 
 
 
