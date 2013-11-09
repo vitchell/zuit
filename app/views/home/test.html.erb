@@ -1,62 +1,51 @@
-
 <script>
+
   $(document).ready(function(){
 
-    var nsSlider = function() {
-      setTimeout(function() {
-        $("ul#z-slide-wizard").addClass("z-slide-state");
-        setTimeout(function() {
-          var nsMovingPane = $("ul#z-slide-wizard > li:nth-child(1)" );
-          $("ul#z-slide-wizard").removeClass("z-slide-state");
-          $("ul#z-slide-wizard").append( nsMovingPane );
-          nsSlider();
-        }, 4000);
-      }, 250);
-    }
-    // nsSlider(); 
+    $("#z-slide-wizard li").each(function(){
+      var self = $(this);
+      $(".z-form-selector li", self).click(function(){
+        self.find(".selected").removeClass("selected");
+        $(this).addClass("selected");
+        self.find("input[type=hidden]").val( $(this).text() );
+      }).first().click();
+    });
+
+
+    $("#z-customizer").submit(function(e){
+      var valid = true;
+
+      // form validations
+
+      if( !valid ){
+        e.preventDefault();
+        return false;
+      }
+    });
+
   });
+
 </script>
 
-
-<style>
-
-</style>
 
 <h2>Customize</h2>
 
 <section id="z-style-picker">
-    <div class="z-container">
+  <div class="z-container">
+
+    <form id="z-customizer">
       <ul id="z-slide-wizard" class="z-slide-state">
-        <li>
-          
-          <h3>Jacket Lapels</h3>
-          <ul class="z-form-selector">
-            <li class="selected">
-              Notch
-            </li>
-            <li>
-              Notch Slim
-            </li>
-            <li>
-              Peak
-            </li>
-          </ul>
 
-          <div class="description">
-            <p>Notch lapels are the most widely used and most versatile. Peak lapels are for a touch of flair. Slim lapels are more fashion forward, noticeably slimmer than the average suit.</p>
-          </div>
+        <%= render "customizer/notch" %>
+        <%= render "customizer/notch" %>
+        <%= render "customizer/notch" %>
+        <%= render "customizer/notch" %>
 
-        </li>
         <li>
-          
-        </li>
-        <li>
-          
+          <input type="submit" value="Add To Your Cart" />
         </li>
       </ul>
+    </form>
 
-      <!-- #ns-tools-list -->
-
-    </div>
-    <!-- .ns-container -->
-  </section>
+  </div>
+</section>
