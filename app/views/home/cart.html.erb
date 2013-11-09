@@ -2,9 +2,24 @@
 
 <script>
 $(document).ready(function(){
-  $.each(the_cart.items, function(){
-    console.log( this )
-    $("#zu-cart").append("<li>Product ID:"+this.product_id+" <br />Customizations:"+JSON.stringify(this.customizations)+"</li>");
+  $.each(the_cart.items, function(i, v){
+    $("#zu-cart").append(
+      "<li>Product ID:" + 
+      this.product_id+
+      " <br />Customizations:"+
+      JSON.stringify(this.customizations)+
+      "<br /><a href='#" + i +"' class=\"zu-delete\"><i class=\"ss-icon ss-icon\">delete</i></a> " +
+      "</li>"
+      );
+  });
+
+  $(".zu-delete").click(function(e){
+    var index = parseInt( $(this).attr("href").replace("#", "") );
+    the_cart.items.splice( index, 1 );
+    $.cookie("shopping_cart", the_cart);
+    $(this).parent().remove();
+    e.preventDefault();
+    return false;
   });
 });
 </script>
