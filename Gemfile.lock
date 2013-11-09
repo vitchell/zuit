@@ -146,8 +146,8 @@ GEM
     polyamorous (0.6.4)
       activerecord (>= 3.0)
     polyglot (0.3.3)
-    rabl (0.8.4)
-      activesupport (>= 2.3.14)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -281,7 +281,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise (= 3.0.1)
   jquery-rails
-  money (~> 5.1.1)
+  quiet_assets
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
