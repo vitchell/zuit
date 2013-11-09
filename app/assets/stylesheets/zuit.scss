@@ -162,7 +162,12 @@ h3 {
   line-height: 60px;
   color: $font-header-color;
 }
-h4 {}
+h4 {
+  font-family: $serif-font;
+  font-size: 36px;
+  line-height: 50px;
+  color: $font-header-color;
+}
 h5 {}
 h6 {}
 
@@ -180,6 +185,10 @@ em { font-style: italic; }
 p {}
 p.zu-paragraph-subheader {
   font-size: 18px;
+  line-height: 30px;
+}
+p.zu-paragraph-subsubheader {
+  font-size: 16px;
   line-height: 30px;
 }
 
@@ -341,6 +350,9 @@ nav#zu-navigation {
   a#zu-home-logo {
     display: inline-block;
     margin: 0 auto 10px auto;
+  }
+  a#zu-home-logo:hover {
+    @include opacity(0.66);
   }
   ul#zu-menu {
     display: block;
@@ -533,6 +545,12 @@ section#zu-section-item {
         padding: 10px;
         margin: 0 0 10px 0;
         background: $white;
+        cursor: pointer;
+      }
+      li:hover {
+        img {
+          @include opacity(0.66);
+        }
       }
     }
     #zu-section-item-image {
@@ -552,13 +570,24 @@ section#zu-shop {
     margin: 92px 0 16px 0;
     text-align: center;
   }
-  p.zu-paragraph-subheader {
+  h4 {
+    margin: 51px 0 8px 0;
+    text-align: center;
+    span {
+      color: $teal-3;
+    }
+  }
+  p.zu-paragraph-subheader,
+  p.zu-paragraph-subsubheader {
     margin: 0 0 62px 0;
     text-align: center;
     font-weight: 300;
     @include prefix(3);
     @include suffix(3);
     @include span-columns(6 omega, 12);
+  }
+  p.zu-paragraph-subsubheader {
+    margin: 0 0 41px 0;
   }
   ul#zu-shop-tiles {
     @include span-columns(12 omega, 12);
