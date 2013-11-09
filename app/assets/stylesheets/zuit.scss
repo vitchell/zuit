@@ -1,0 +1,37 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "compass/utilities/general/hacks";
+
+
+/* Remove this, just messing around */
+section#z-style-picker {
+  ul#z-slide-wizard {
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 0 0 87px 0;
+    font-size: 0;
+    overflow: visible;
+    white-space: nowrap;
+    position: relative;
+    @include transition(none);
+    > li {
+      display: inline-block;
+      width: 100%;
+      > img {
+        display: block;
+        margin: 0 auto;
+        width: 75%;
+      }
+    }
+  }
+  ul#z-slide-wizard.z-slide-state {
+    left: -100%;
+    @include transition-property(left);
+    @include transition-duration(0.25s);
+    @include transition-timing-function(ease-in); 
+    @include transition-delay(0);
+  }
+
+}

@@ -1,0 +1,62 @@
+
+<script>
+  $(document).ready(function(){
+
+    var nsSlider = function() {
+      setTimeout(function() {
+        $("ul#z-slide-wizard").addClass("z-slide-state");
+        setTimeout(function() {
+          var nsMovingPane = $("ul#z-slide-wizard > li:nth-child(1)" );
+          $("ul#z-slide-wizard").removeClass("z-slide-state");
+          $("ul#z-slide-wizard").append( nsMovingPane );
+          nsSlider();
+        }, 4000);
+      }, 250);
+    }
+    // nsSlider(); 
+  });
+</script>
+
+
+<style>
+
+</style>
+
+<h2>Customize</h2>
+
+<section id="z-style-picker">
+    <div class="z-container">
+      <ul id="z-slide-wizard" class="z-slide-state">
+        <li>
+          
+          <h3>Jacket Lapels</h3>
+          <ul class="z-form-selector">
+            <li class="selected">
+              Notch
+            </li>
+            <li>
+              Notch Slim
+            </li>
+            <li>
+              Peak
+            </li>
+          </ul>
+
+          <div class="description">
+            <p>Notch lapels are the most widely used and most versatile. Peak lapels are for a touch of flair. Slim lapels are more fashion forward, noticeably slimmer than the average suit.</p>
+          </div>
+
+        </li>
+        <li>
+          
+        </li>
+        <li>
+          
+        </li>
+      </ul>
+
+      <!-- #ns-tools-list -->
+
+    </div>
+    <!-- .ns-container -->
+  </section>
