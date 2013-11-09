@@ -1,0 +1,25 @@
+<%= form_for(@suit) do |f| %>
+  <% if @suit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@suit.errors.count, "error") %> prohibited this suit from being saved:</h2>
+
+      <ul>
+      <% @suit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :suit_type %><br>
+    <%= f.text_field :suit_type %>
+  </div>
+  <div class="field">
+    <%= f.label :suit_image %><br>
+    <%= f.text_field :suit_image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

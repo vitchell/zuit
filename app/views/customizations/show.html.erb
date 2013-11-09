@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @customization.order_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @customization.product_id %>
+</p>
+
+<p>
+  <strong>Jacket lapel:</strong>
+  <%= @customization.jacket_lapel %>
+</p>
+
+<p>
+  <strong>Jacket button:</strong>
+  <%= @customization.jacket_button %>
+</p>
+
+<p>
+  <strong>Jacket pocket:</strong>
+  <%= @customization.jacket_pocket %>
+</p>
+
+<p>
+  <strong>Jacket lining:</strong>
+  <%= @customization.jacket_lining %>
+</p>
+
+<p>
+  <strong>Jacket monogram:</strong>
+  <%= @customization.jacket_monogram %>
+</p>
+
+<p>
+  <strong>Pant type:</strong>
+  <%= @customization.pant_type %>
+</p>
+
+<p>
+  <strong>Pant length:</strong>
+  <%= @customization.pant_length %>
+</p>
+
+<p>
+  <strong>Skirt type:</strong>
+  <%= @customization.skirt_type %>
+</p>
+
+<p>
+  <strong>Skirt length:</strong>
+  <%= @customization.skirt_length %>
+</p>
+
+<%= link_to 'Edit', edit_customization_path(@customization) %> |
+<%= link_to 'Back', customizations_path %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Suit type:</strong>
+  <%= @suit.suit_type %>
+</p>
+
+<p>
+  <strong>Suit image:</strong>
+  <%= @suit.suit_image %>
+</p>
+
+<%= link_to 'Edit', edit_suit_path(@suit) %> |
+<%= link_to 'Back', suits_path %>

@@ -1,0 +1,61 @@
+<%= form_for(@customization) do |f| %>
+  <% if @customization.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customization.errors.count, "error") %> prohibited this customization from being saved:</h2>
+
+      <ul>
+      <% @customization.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :order_id %><br>
+    <%= f.number_field :order_id %>
+  </div>
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :jacket_lapel %><br>
+    <%= f.text_field :jacket_lapel %>
+  </div>
+  <div class="field">
+    <%= f.label :jacket_button %><br>
+    <%= f.text_field :jacket_button %>
+  </div>
+  <div class="field">
+    <%= f.label :jacket_pocket %><br>
+    <%= f.text_field :jacket_pocket %>
+  </div>
+  <div class="field">
+    <%= f.label :jacket_lining %><br>
+    <%= f.text_field :jacket_lining %>
+  </div>
+  <div class="field">
+    <%= f.label :jacket_monogram %><br>
+    <%= f.text_field :jacket_monogram %>
+  </div>
+  <div class="field">
+    <%= f.label :pant_type %><br>
+    <%= f.text_field :pant_type %>
+  </div>
+  <div class="field">
+    <%= f.label :pant_length %><br>
+    <%= f.text_field :pant_length %>
+  </div>
+  <div class="field">
+    <%= f.label :skirt_type %><br>
+    <%= f.text_field :skirt_type %>
+  </div>
+  <div class="field">
+    <%= f.label :skirt_length %><br>
+    <%= f.text_field :skirt_length %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

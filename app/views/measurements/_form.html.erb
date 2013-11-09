@@ -1,0 +1,125 @@
+<%= form_for(@measurement) do |f| %>
+  <% if @measurement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@measurement.errors.count, "error") %> prohibited this measurement from being saved:</h2>
+
+      <ul>
+      <% @measurement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :height %><br>
+    <%= f.text_field :height %>
+  </div>
+  <div class="field">
+    <%= f.label :neck %><br>
+    <%= f.text_field :neck %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_to_shoulder %><br>
+    <%= f.text_field :shoulder_to_shoulder %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_right %><br>
+    <%= f.text_field :shoulder_right %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_left %><br>
+    <%= f.text_field :shoulder_left %>
+  </div>
+  <div class="field">
+    <%= f.label :bicep %><br>
+    <%= f.text_field :bicep %>
+  </div>
+  <div class="field">
+    <%= f.label :arm_length_right %><br>
+    <%= f.text_field :arm_length_right %>
+  </div>
+  <div class="field">
+    <%= f.label :arm_length_left %><br>
+    <%= f.text_field :arm_length_left %>
+  </div>
+  <div class="field">
+    <%= f.label :wrist %><br>
+    <%= f.text_field :wrist %>
+  </div>
+  <div class="field">
+    <%= f.label :torso_length %><br>
+    <%= f.text_field :torso_length %>
+  </div>
+  <div class="field">
+    <%= f.label :chest %><br>
+    <%= f.text_field :chest %>
+  </div>
+  <div class="field">
+    <%= f.label :nip_to_nip %><br>
+    <%= f.text_field :nip_to_nip %>
+  </div>
+  <div class="field">
+    <%= f.label :stomach %><br>
+    <%= f.text_field :stomach %>
+  </div>
+  <div class="field">
+    <%= f.label :waist %><br>
+    <%= f.text_field :waist %>
+  </div>
+  <div class="field">
+    <%= f.label :hip %><br>
+    <%= f.text_field :hip %>
+  </div>
+  <div class="field">
+    <%= f.label :waist_to_knee %><br>
+    <%= f.text_field :waist_to_knee %>
+  </div>
+  <div class="field">
+    <%= f.label :leg_right %><br>
+    <%= f.text_field :leg_right %>
+  </div>
+  <div class="field">
+    <%= f.label :leg_left %><br>
+    <%= f.text_field :leg_left %>
+  </div>
+  <div class="field">
+    <%= f.label :crotch %><br>
+    <%= f.text_field :crotch %>
+  </div>
+  <div class="field">
+    <%= f.label :thigh %><br>
+    <%= f.text_field :thigh %>
+  </div>
+  <div class="field">
+    <%= f.label :knee %><br>
+    <%= f.text_field :knee %>
+  </div>
+  <div class="field">
+    <%= f.label :shoulder_type %><br>
+    <%= f.text_field :shoulder_type %>
+  </div>
+  <div class="field">
+    <%= f.label :chest_type %><br>
+    <%= f.text_field :chest_type %>
+  </div>
+  <div class="field">
+    <%= f.label :stomach_type %><br>
+    <%= f.text_field :stomach_type %>
+  </div>
+  <div class="field">
+    <%= f.label :posture_type %><br>
+    <%= f.text_field :posture_type %>
+  </div>
+  <div class="field">
+    <%= f.label :seat_type %><br>
+    <%= f.text_field :seat_type %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

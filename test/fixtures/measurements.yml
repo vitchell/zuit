@@ -1,0 +1,59 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  height: 9.99
+  neck: 9.99
+  shoulder_to_shoulder: 9.99
+  shoulder_right: 9.99
+  shoulder_left: 9.99
+  bicep: 9.99
+  arm_length_right: 9.99
+  arm_length_left: MyString
+  wrist: 9.99
+  torso_length: 9.99
+  chest: 9.99
+  nip_to_nip: 9.99
+  stomach: 9.99
+  waist: 9.99
+  hip: 9.99
+  waist_to_knee: 9.99
+  leg_right: 9.99
+  leg_left: 9.99
+  crotch: 9.99
+  thigh: 9.99
+  knee: 9.99
+  shoulder_type: MyString
+  chest_type: MyString
+  stomach_type: MyString
+  posture_type: MyString
+  seat_type: MyString
+
+two:
+  user_id: 1
+  height: 9.99
+  neck: 9.99
+  shoulder_to_shoulder: 9.99
+  shoulder_right: 9.99
+  shoulder_left: 9.99
+  bicep: 9.99
+  arm_length_right: 9.99
+  arm_length_left: MyString
+  wrist: 9.99
+  torso_length: 9.99
+  chest: 9.99
+  nip_to_nip: 9.99
+  stomach: 9.99
+  waist: 9.99
+  hip: 9.99
+  waist_to_knee: 9.99
+  leg_right: 9.99
+  leg_left: 9.99
+  crotch: 9.99
+  thigh: 9.99
+  knee: 9.99
+  shoulder_type: MyString
+  chest_type: MyString
+  stomach_type: MyString
+  posture_type: MyString
+  seat_type: MyString

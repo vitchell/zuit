@@ -1,0 +1,79 @@
+<h1>Listing measurements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Height</th>
+      <th>Neck</th>
+      <th>Shoulder to shoulder</th>
+      <th>Shoulder right</th>
+      <th>Shoulder left</th>
+      <th>Bicep</th>
+      <th>Arm length right</th>
+      <th>Arm length left</th>
+      <th>Wrist</th>
+      <th>Torso length</th>
+      <th>Chest</th>
+      <th>Nip to nip</th>
+      <th>Stomach</th>
+      <th>Waist</th>
+      <th>Hip</th>
+      <th>Waist to knee</th>
+      <th>Leg right</th>
+      <th>Leg left</th>
+      <th>Crotch</th>
+      <th>Thigh</th>
+      <th>Knee</th>
+      <th>Shoulder type</th>
+      <th>Chest type</th>
+      <th>Stomach type</th>
+      <th>Posture type</th>
+      <th>Seat type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measurements.each do |measurement| %>
+      <tr>
+        <td><%= measurement.user_id %></td>
+        <td><%= measurement.height %></td>
+        <td><%= measurement.neck %></td>
+        <td><%= measurement.shoulder_to_shoulder %></td>
+        <td><%= measurement.shoulder_right %></td>
+        <td><%= measurement.shoulder_left %></td>
+        <td><%= measurement.bicep %></td>
+        <td><%= measurement.arm_length_right %></td>
+        <td><%= measurement.arm_length_left %></td>
+        <td><%= measurement.wrist %></td>
+        <td><%= measurement.torso_length %></td>
+        <td><%= measurement.chest %></td>
+        <td><%= measurement.nip_to_nip %></td>
+        <td><%= measurement.stomach %></td>
+        <td><%= measurement.waist %></td>
+        <td><%= measurement.hip %></td>
+        <td><%= measurement.waist_to_knee %></td>
+        <td><%= measurement.leg_right %></td>
+        <td><%= measurement.leg_left %></td>
+        <td><%= measurement.crotch %></td>
+        <td><%= measurement.thigh %></td>
+        <td><%= measurement.knee %></td>
+        <td><%= measurement.shoulder_type %></td>
+        <td><%= measurement.chest_type %></td>
+        <td><%= measurement.stomach_type %></td>
+        <td><%= measurement.posture_type %></td>
+        <td><%= measurement.seat_type %></td>
+        <td><%= link_to 'Show', measurement %></td>
+        <td><%= link_to 'Edit', edit_measurement_path(measurement) %></td>
+        <td><%= link_to 'Destroy', measurement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Measurement', new_measurement_path %>

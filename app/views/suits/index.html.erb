@@ -1,0 +1,29 @@
+<h1>Listing suits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Suit type</th>
+      <th>Suit image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @suits.each do |suit| %>
+      <tr>
+        <td><%= suit.suit_type %></td>
+        <td><%= suit.suit_image %></td>
+        <td><%= link_to 'Show', suit %></td>
+        <td><%= link_to 'Edit', edit_suit_path(suit) %></td>
+        <td><%= link_to 'Destroy', suit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Suit', new_suit_path %>

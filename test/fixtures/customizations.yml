@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  order_id: 1
+  product_id: 1
+  jacket_lapel: MyString
+  jacket_button: MyString
+  jacket_pocket: MyString
+  jacket_lining: MyString
+  jacket_monogram: MyString
+  pant_type: MyString
+  pant_length: MyString
+  skirt_type: MyString
+  skirt_length: MyString
+
+two:
+  order_id: 1
+  product_id: 1
+  jacket_lapel: MyString
+  jacket_button: MyString
+  jacket_pocket: MyString
+  jacket_lining: MyString
+  jacket_monogram: MyString
+  pant_type: MyString
+  pant_length: MyString
+  skirt_type: MyString
+  skirt_length: MyString

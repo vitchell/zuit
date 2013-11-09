@@ -1,0 +1,47 @@
+<h1>Listing customizations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Product</th>
+      <th>Jacket lapel</th>
+      <th>Jacket button</th>
+      <th>Jacket pocket</th>
+      <th>Jacket lining</th>
+      <th>Jacket monogram</th>
+      <th>Pant type</th>
+      <th>Pant length</th>
+      <th>Skirt type</th>
+      <th>Skirt length</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customizations.each do |customization| %>
+      <tr>
+        <td><%= customization.order_id %></td>
+        <td><%= customization.product_id %></td>
+        <td><%= customization.jacket_lapel %></td>
+        <td><%= customization.jacket_button %></td>
+        <td><%= customization.jacket_pocket %></td>
+        <td><%= customization.jacket_lining %></td>
+        <td><%= customization.jacket_monogram %></td>
+        <td><%= customization.pant_type %></td>
+        <td><%= customization.pant_length %></td>
+        <td><%= customization.skirt_type %></td>
+        <td><%= customization.skirt_length %></td>
+        <td><%= link_to 'Show', customization %></td>
+        <td><%= link_to 'Edit', edit_customization_path(customization) %></td>
+        <td><%= link_to 'Destroy', customization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Customization', new_customization_path %>
