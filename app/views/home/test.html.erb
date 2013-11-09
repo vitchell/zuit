@@ -2,35 +2,35 @@
 
   $(document).ready(function(){
 
-    $("#z-slide-wizard>li").each(function(){
+    $("#zu-slide-wizard>li").each(function(){
       var self = $(this);
-      $("#z-customizer-dots").append("<span>&bull;</span>");
-      $(".z-form-selector li", self).click(function(){
+      $("#zu-customizer-dots").append("<span>&bull;</span>");
+      $(".zu-form-selector li", self).click(function(){
 
         self.find(".selected").removeClass("selected");
-        self.find(".z-wizard-check").remove();
+        self.find(".zu-wizard-check").remove();
 
         $(this).addClass("selected");
-        $(this).append( $("<i class=\"ss-icon ss-icon z-wizard-check\">check</i>") );
+        $(this).append( $("<i class=\"ss-icon ss-icon zu-wizard-check\">check</i>") );
 
         self.find("input[type=hidden]").val( $.trim( $(this).clone().children().remove().end().text() ) );
       }).first().click();
     });
 
 
-    $("#z-slide-wizard>li").hide().first().show().addClass("active");
+    $("#zu-slide-wizard>li").hide().first().show().addClass("active");
     activatePaneByIndex( 0 );
 
-    $("#z-customizer-nav .z-previous").click(function(e){
-      var index = $("#z-slide-wizard>li").index( $("#z-slide-wizard>li.active") );
+    $("#zu-customizer-nav .zu-previous").click(function(e){
+      var index = $("#zu-slide-wizard>li").index( $("#zu-slide-wizard>li.active") );
       activatePaneByIndex( index - 1 );
 
       e.preventDefault();
       return false;
     });
 
-    $("#z-customizer-nav .z-next").click(function(e){
-      var index = $("#z-slide-wizard>li").index( $("#z-slide-wizard>li.active") );
+    $("#zu-customizer-nav .zu-next").click(function(e){
+      var index = $("#zu-slide-wizard>li").index( $("#zu-slide-wizard>li.active") );
       activatePaneByIndex( index + 1 );
 
       e.preventDefault();
@@ -39,7 +39,7 @@
 
 
 
-    $("#z-customizer").submit(function(e){
+    $("#zu-customizer").submit(function(e){
       var valid = true;
 
       // TODO:
@@ -48,7 +48,7 @@
 
       the_cart.items.push({
         product_id: <%= params[:product_id].present? ? params[:product_id] : 1 %>,
-        customizations: parseInputs( $("#z-customizer").serializeObject() )
+        customizations: parseInputs( $("#zu-customizer").serializeObject() )
       });
 
       $.cookie("shopping_cart", the_cart);
@@ -62,45 +62,45 @@
   });
 
   var activatePaneByIndex = function( index ){
-    var size = $("#z-slide-wizard>li").length;
+    var size = $("#zu-slide-wizard>li").length;
 
-    $("#z-slide-wizard>li.active").hide().removeClass("active");
-    $("#z-slide-wizard>li").eq(index).addClass("active").show();;
+    $("#zu-slide-wizard>li.active").hide().removeClass("active");
+    $("#zu-slide-wizard>li").eq(index).addClass("active").show();;
 
-    $("#z-customizer-dots span").removeClass("active");
-    $("#z-customizer-dots span").eq( index ).addClass("active");
+    $("#zu-customizer-dots span").removeClass("active");
+    $("#zu-customizer-dots span").eq( index ).addClass("active");
 
 
     if( index == 0 ){
-      $("#z-customizer-nav div").hide();
-      $("#z-customizer-nav div.z-start").show();
+      $("#zu-customizer-nav div").hide();
+      $("#zu-customizer-nav div.zu-start").show();
     }else if( index+1 == size ){
-      $("#z-customizer-nav div").hide();
-      $("#z-customizer-nav div.z-end").show();
+      $("#zu-customizer-nav div").hide();
+      $("#zu-customizer-nav div.zu-end").show();
     }else{
-      $("#z-customizer-nav div").hide();
-      $("#z-customizer-nav div.z-middle").show();
+      $("#zu-customizer-nav div").hide();
+      $("#zu-customizer-nav div.zu-middle").show();
     }
   }
 
 </script>
 
 <style>
-  #z-slide-wizard .z-form-selector li{ cursor: pointer; }
-  #z-slide-wizard .selected{ background-color: #eee; }
-  #z-customizer-dots span{ opacity: 0.5; font-size: 1.5em;}
-  #z-customizer-dots span.active{ opacity: 1.0; }
-  .z-wizard-check{ color: green; padding: 5px;}
+  #zu-slide-wizard .zu-form-selector li{ cursor: pointer; }
+  #zu-slide-wizard .selected{ background-color: #eee; }
+  #zu-customizer-dots span{ opacity: 0.5; font-size: 1.5em;}
+  #zu-customizer-dots span.active{ opacity: 1.0; }
+  .zu-wizard-check{ color: green; padding: 5px;}
 </style>
 
 
 <h2>Customize</h2>
 
-<section id="z-style-picker">
-  <div class="z-container">
+<section id="zu-style-picker">
+  <div class="zu-container">
 
-    <form id="z-customizer">
-      <ul id="z-slide-wizard" class="z-slide-state">
+    <form id="zu-customizer">
+      <ul id="zu-slide-wizard" class="zu-slide-state">
 
         <%= render "customizer/notch" %>
         <%= render "customizer/notch" %>
@@ -109,20 +109,20 @@
 
       </ul>
 
-      <div id="z-customizer-nav">
-        <div class="z-start">
-          <button class="z-next">Next</button>
+      <div id="zu-customizer-nav">
+        <div class="zu-start">
+          <button class="zu-next">Next</button>
         </div>
-        <div class="z-middle">
-          <button class="z-previous">Previous</button>
-          <button class="z-next">Next</button>
+        <div class="zu-middle">
+          <button class="zu-previous">Previous</button>
+          <button class="zu-next">Next</button>
         </div>
-        <div class="z-end">
-          <button class="z-previous">Previous</button>
+        <div class="zu-end">
+          <button class="zu-previous">Previous</button>
           <input type="submit" value="Add To Your Bag" />
         </div>
       </div>
-      <div id="z-customizer-dots">
+      <div id="zu-customizer-dots">
       </div>
     </form>
 
