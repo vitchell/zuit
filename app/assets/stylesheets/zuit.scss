@@ -313,19 +313,25 @@ section#zu-top-bar {
   font-size: 12px;
   border-bottom: 1px solid $light-grey;
   margin: 0 0 46px 0;
-  a {
-    color: $font-body-color;
-  }
-  a:hover {
-    color: $red-2;
-  }
   #zu-top-bar-blurb {
     display: block;
     float: left;
+    a {
+      text-decoration: underline;
+    }
+    a:hover {
+      text-decoration: none;
+    }
   }
   #zu-top-bar-session {
     display: block;
     float: right;
+    a {
+      color: $font-body-color;
+    }
+    a:hover {
+      color: $red-2;
+    }
   }
 }
 nav#zu-navigation {
@@ -512,7 +518,31 @@ section#zu-section-item {
     }
   }
   #zu-section-item-images {
+    padding: 32px 0 0 0;
     @include span-columns(5 omega, 12);
+    ul#zu-section-item-image-thumbnails {
+      display: block;
+      float: right;
+      width: 110px;
+      margin: 0 10px 0 0;
+      li {
+        display: block;
+        float: left;
+        width: 90px;
+        height: 90px;
+        padding: 10px;
+        margin: 0 0 10px 0;
+        background: $white;
+      }
+    }
+    #zu-section-item-image {
+      display: block;
+      float: right;
+      width: 324px;
+      height: 479px;
+      padding: 10px;
+      background: $white;
+    }
   }
 
 }
