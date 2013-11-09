@@ -2,14 +2,39 @@
 
   $(document).ready(function(){
 
-    $("#z-slide-wizard li").each(function(){
+    $("#z-slide-wizard>li").each(function(){
       var self = $(this);
+      $("#z-customizer-dots").append("<span>&bull;</span>");
       $(".z-form-selector li", self).click(function(){
         self.find(".selected").removeClass("selected");
         $(this).addClass("selected");
         self.find("input[type=hidden]").val( $(this).text() );
       }).first().click();
     });
+
+
+    $("#z-slide-wizard>li").hide().first().show().addClass("active");
+    activatePaneByIndex( 0 );
+
+    $("#z-customizer-nav .z-previous").click(function(e){
+      var index = $("#z-slide-wizard>li").index( $("#z-slide-wizard>li.active") )
+      activatePaneByIndex( index - 1 );
+
+      e.preventDefault();
+      return false;
+    });
+
+    $("#z-customizer-nav .z-next").click(function(e){
+      var index = $("#z-slide-wizard>li").index( $("#z-slide-wizard>li.active") )
+      activatePaneByIndex( index + 1 );
+
+      e.preventDefault();
+      return false;
+    });
+
+
+
+
 
 
     $("#z-customizer").submit(function(e){
@@ -25,7 +50,36 @@
 
   });
 
+  var activatePaneByIndex = function( index ){
+    var size = $("#z-slide-wizard>li").length;
+
+    $("#z-slide-wizard>li.active").hide().removeClass("active");
+    $("#z-slide-wizard>li").eq(index).addClass("active").show();;
+
+    $("#z-customizer-dots span").removeClass("active");
+    $("#z-customizer-dots span").eq( index ).addClass("active");
+
+
+    if( index == 0 ){
+      $("#z-customizer-nav div").hide();
+      $("#z-customizer-nav div.z-start").show();
+    }else if( index+1 == size ){
+      $("#z-customizer-nav div").hide();
+      $("#z-customizer-nav div.z-end").show();
+    }else{
+      $("#z-customizer-nav div").hide();
+      $("#z-customizer-nav div.z-middle").show();
+    }
+  }
+
 </script>
+
+<style>
+  #z-slide-wizard .z-form-selector li{ cursor: pointer; }
+  #z-slide-wizard .selected{ background-color: #eee; }
+  #z-customizer-dots span{ opacity: 0.5; font-size: 1.5em;}
+  #z-customizer-dots span.active{ opacity: 1.0; }
+</style>
 
 
 <h2>Customize</h2>
@@ -41,11 +95,25 @@
         <%= render "customizer/notch" %>
         <%= render "customizer/notch" %>
 
-        <li>
-          <input type="submit" value="Add To Your Cart" />
-        </li>
       </ul>
+
+      <div id="z-customizer-nav">
+        <div class="z-start">
+          <button class="z-next">Next</button>
+        </div>
+        <div class="z-middle">
+          <button class="z-previous">Previous</button>
+          <button class="z-next">Next</button>
+        </div>
+        <div class="z-end">
+          <button class="z-previous">Previous</button>
+          <input type="submit" value="Add To Your Cart" />
+        </div>
+      </div>
+      <div id="z-customizer-dots">
+      </div>
     </form>
 
   </div>
 </section>
+
