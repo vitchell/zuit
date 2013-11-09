@@ -1,0 +1,308 @@
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/utilities/general/clearfix";
+@import "compass/utilities/general/hacks";
+@import "susy";
+
+
+
+/****************************************************************************************************
+
+  Table of Contents
+
+*****************************************************************************************************
+
+  0.  SCSS Variables
+      - Color Theme
+      - Media Size Breakpoints
+      - Susy Grid Settings
+      - Font Stacks
+      - Z Indices
+
+  1.  Universal Cascade
+      - Body
+
+  2.  Tag-Specific Styles
+      - Forms
+      - Tables
+
+  3.  Utility Classes
+      - Paragraph Variations
+      - Buttons
+
+  4.  Template Sections
+
+  5.  Content Elements
+
+  6.  Pages
+
+  7.  JS Widgets
+
+****************************************************************************************************/
+
+
+
+/****************************************************************************************************
+  0.  SCSS Variables
+****************************************************************************************************/
+
+
+/* Color Theme */
+/************************************************/
+
+$font-header-color: #70747d;
+$font-body-color: #878a91;
+
+$white: #ffffff;
+
+
+
+/* Media Size Breakpoints */
+/************************************************/
+
+$monitor-breakpoint: 1200px;
+$laptop-breakpoint: 980px;
+$tablet-breakpoint: 768px;
+$phone-breakpoint: 480px;
+
+@mixin screen-format($media-type) {
+  @if $media-type == monitor {
+    @media (min-width: $monitor-breakpoint) { @content; }
+  }
+  @else if $media-type == laptop {
+    @media (min-width: $laptop-breakpoint) and (max-width: $monitor-breakpoint - 1) { @content; }
+  }
+  @else if $media-type == tablet {
+    @media (min-width: $tablet-breakpoint) and (max-width: $laptop-breakpoint - 1) { @content; }
+  }
+  @else if $media-type == phone {
+    @media (min-width: $phone-breakpoint) and (max-width: $tablet-breakpoint - 1) { @content; }
+  }
+  @else if $media-type == nano {
+    @media (max-width: $phone-breakpoint - 1) { @content; }
+  }
+}
+
+/* Susy Grid Settings */
+/************************************************/
+
+$total-columns: 12;
+$column-width: 56px;
+$gutter-width: 48px;
+$grid-padding: 0;
+
+
+/* Font Stacks */
+/************************************************/
+
+$serif-font: 'Prata', 'Georgia', 'Times New Roman', serif;
+$sans-serif-font: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$symbolset-standard: "SSStandard";
+$symbolset-symbolicons: "SSSymbolicons";
+$symbolset-social: "SSSocial";
+
+
+/* Z Indices */
+/************************************************/
+
+
+
+/****************************************************************************************************
+  1.  Universal Cascade
+****************************************************************************************************/
+
+
+/* HTML */
+/************************************************/
+
+html {
+  height: 100%;
+}
+
+
+/* Body */
+/************************************************/
+
+body {
+  height: 100%;
+  font-size: 16px;
+  font-family: $sans-serif-font;
+  line-height: 30px;
+  color: $font-body-color;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {}
+
+h1 {
+  font-family: $serif-font;
+  font-size: 84px;
+  line-height: 100px;
+  color: $font-header-color;
+  @include screen-format(nano) {
+    font-size: 64px;
+    line-height: 80px;
+  }
+}
+h2 {
+  font-family: $serif-font;
+  font-size: 50px;
+  line-height: 70px;
+  color: $font-header-color;
+  @include screen-format(nano) {
+    font-size: 40px;
+    line-height: 60px;
+  }
+}
+h3 {
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 50px;
+}
+h4 {}
+h5 {}
+h6 {}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+strong { font-weight: 700; }
+em { font-style: italic; }
+
+p {}
+
+label {
+  display: inline-block;
+}
+
+input,
+textarea,
+select {
+  display: inline-block;
+  font-family: $font-header-color;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+input:focus,
+textarea:focus,
+select:focus { outline: none; }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  padding: 8px 14px 10px 14px;
+  border: 1px solid $font-header-color;
+  color: $font-body-color;
+  @include box-sizing(border-box);
+  @include border-radius(2px);
+}
+
+a {
+  color: $orange-1;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* Buttons */
+/************************************************/
+
+.zu-button,
+input[type="submit"],
+button {
+  display: inline-block;
+  padding: 9px 20px;
+  margin: 0;
+  border-top: none;
+  border-right: none;
+  border-bottom: 2px solid $font-header-color;
+  border-left: none;
+  color: $white;
+  background: $font-body-color;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: $sans-serif-font;
+  line-height: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+  -webkit-appearance: none;
+  @include box-sizing(border-box);
+  @include border-radius(2px);
+}
+
+.zu-button:active,
+input[type="submit"]:active,
+button:active {
+  position: relative;
+  top: 2px;
+}
+
+.zu-button:hover,
+input[type="submit"]:hover,
+button:hover {
+  text-decoration: none;
+  @include opacity(.66);
+}
+
+.ns-button:focus,
+input[type="submit"]:focus,
+button:focus {
+  outline: none;
+}
+
+.ns-button:before,
+input[type="submit"]:before,
+button:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
