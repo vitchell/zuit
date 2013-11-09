@@ -6,9 +6,14 @@
       var self = $(this);
       $("#z-customizer-dots").append("<span>&bull;</span>");
       $(".z-form-selector li", self).click(function(){
+
         self.find(".selected").removeClass("selected");
+        self.find(".z-wizard-check").remove();
+
         $(this).addClass("selected");
-        self.find("input[type=hidden]").val( $(this).text() );
+        $(this).append( $("<i class=\"ss-icon ss-icon z-wizard-check\">check</i>") );
+
+        self.find("input[type=hidden]").val( $.trim( $(this).clone().children().remove().end().text() ) );
       }).first().click();
     });
 
@@ -17,7 +22,7 @@
     activatePaneByIndex( 0 );
 
     $("#z-customizer-nav .z-previous").click(function(e){
-      var index = $("#z-slide-wizard>li").index( $("#z-slide-wizard>li.active") )
+      var index = $("#z-slide-wizard>li").index( $("#z-slide-wizard>li.active") );
       activatePaneByIndex( index - 1 );
 
       e.preventDefault();
@@ -25,7 +30,7 @@
     });
 
     $("#z-customizer-nav .z-next").click(function(e){
-      var index = $("#z-slide-wizard>li").index( $("#z-slide-wizard>li.active") )
+      var index = $("#z-slide-wizard>li").index( $("#z-slide-wizard>li.active") );
       activatePaneByIndex( index + 1 );
 
       e.preventDefault();
@@ -34,18 +39,24 @@
 
 
 
-
-
-
     $("#z-customizer").submit(function(e){
       var valid = true;
 
+      // TODO:
       // form validations
 
-      if( !valid ){
-        e.preventDefault();
-        return false;
-      }
+
+      the_cart.items.push({
+        product_id: <%= params[:product_id].present? ? params[:product_id] : 1 %>,
+        customizations: parseInputs( $("#z-customizer").serializeObject() )
+      });
+
+      $.cookie("shopping_cart", the_cart);
+
+      document.location = "/cart";
+
+      e.preventDefault();
+      return false;
     });
 
   });
@@ -79,6 +90,7 @@
   #z-slide-wizard .selected{ background-color: #eee; }
   #z-customizer-dots span{ opacity: 0.5; font-size: 1.5em;}
   #z-customizer-dots span.active{ opacity: 1.0; }
+  .z-wizard-check{ color: green; padding: 5px;}
 </style>
 
 
@@ -107,7 +119,7 @@
         </div>
         <div class="z-end">
           <button class="z-previous">Previous</button>
-          <input type="submit" value="Add To Your Cart" />
+          <input type="submit" value="Add To Your Bag" />
         </div>
       </div>
       <div id="z-customizer-dots">

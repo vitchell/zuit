@@ -269,6 +269,7 @@ button:focus {
   outline: none;
 }
 
+/*  This is the code that was fucking things up
 .zu-button:before,
 input[type="submit"]:before,
 button:before {
@@ -280,8 +281,7 @@ button:before {
   content: '';
 }
 
-
-
+*/
 
 
 

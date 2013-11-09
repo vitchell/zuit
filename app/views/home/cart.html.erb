@@ -1,0 +1,14 @@
+
+
+<script>
+$(document).ready(function(){
+  $.each(the_cart.items, function(){
+    console.log( this )
+    $("#zu-cart").append("<li>Product ID:"+this.product_id+" <br />Customizations:"+JSON.stringify(this.customizations)+"</li>");
+  });
+});
+</script>
+
+<ul id="zu-cart">
+
+</ul>
