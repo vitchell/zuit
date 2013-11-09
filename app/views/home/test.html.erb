@@ -65,7 +65,7 @@
     var size = $("#zu-slide-wizard>li").length;
 
     $("#zu-slide-wizard>li.active").hide().removeClass("active");
-    $("#zu-slide-wizard>li").eq(index).addClass("active").show();;
+    $("#zu-slide-wizard>li").eq(index).addClass("active").show();
 
     $("#zu-customizer-dots span").removeClass("active");
     $("#zu-customizer-dots span").eq( index ).addClass("active");
@@ -100,7 +100,7 @@
   <div class="zu-container">
 
     <form id="zu-customizer">
-      <ul id="zu-slide-wizard" class="zu-slide-state">
+      <ul id="zu-slide-wizard">
 
         <%= render "customizer/notch" %>
         <%= render "customizer/notch" %>
