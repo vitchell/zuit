@@ -16,6 +16,11 @@
 //= require_tree .
 //= require_self
 
+$(document).ready(function(){
+  $("#zu-shopping-bag-count").text( " ("+the_cart.items.length+")");
+  $("#zu-section-item-customize").leanModal();
+});
+
 $.cookie.json = true;
 var the_cart = $.cookie("shopping_cart");
 if( the_cart == null ){
@@ -41,9 +46,7 @@ $.fn.serializeObject = function(){
   return o;
 };
 
-$(document).ready(function(){
-  $("#zu-shopping-bag-count").text( " ("+the_cart.items.length+")");
-});
+
 
 
 
