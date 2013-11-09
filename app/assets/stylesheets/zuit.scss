@@ -212,7 +212,7 @@ textarea {
 }
 
 a {
-  color: $font-body-color;
+  color: $red-2;
   cursor: pointer;
   text-decoration: none;
 }
@@ -312,6 +312,13 @@ button:before {
 section#zu-top-bar {
   font-size: 12px;
   border-bottom: 1px solid $light-grey;
+  margin: 0 0 46px 0;
+  a {
+    color: $font-body-color;
+  }
+  a:hover {
+    color: $red-2;
+  }
   #zu-top-bar-blurb {
     display: block;
     float: left;
@@ -326,16 +333,25 @@ nav#zu-navigation {
   position: relative;
   @include box-shadow(0 1px 0 rgba(0, 0, 0, 0.05));
   a#zu-home-logo {
-    margin: 0 auto;
+    display: inline-block;
+    margin: 0 auto 10px auto;
   }
   ul#zu-menu {
-    margin: 0 auto;
+    display: block;
+    width: 100%;
+    margin: 0 auto 16px auto;
     font-size: 14px;
     line-height: 20px;
     text-transform: uppercase;
     > li {
       display: inline-block;
-      margin: 0 20px 20px 0;
+      margin: 0 20px 12px 0;
+      a {
+        color: $font-body-color;
+      }
+      a:hover {
+        color: $red-2;
+      }
     }
     > li:after {
       padding: 0 0 0 24px;
@@ -357,6 +373,7 @@ section#zu-section-header {
   background: #ffffff image-url("header-background-1.jpg") repeat-x center 0;
   @include box-shadow(0 -1px 0 rgba(0, 0, 0, 0.05) inset);
   h1 {
+    margin: 127px 0 1px 0;
     @include prefix(5);
     @include span-columns(7 omega, 12);
     span {
@@ -364,15 +381,18 @@ section#zu-section-header {
     }
   }
   h2 {
+    margin: 0 0 40px 0;
     @include prefix(5);
     @include span-columns(7 omega, 12);
   }
   p {
+    margin: 0 0 48px 0;
     font-size: 18px;
     line-height: 30px;
     font-weight: 300;
-    @include prefix(5);
-    @include span-columns(7 omega, 12);
+    @include prefix(6);
+    @include suffix(1);
+    @include span-columns(5 omega, 12);
   }
   a#zu-cta {
     font-size: 24px;
@@ -391,9 +411,11 @@ section#zu-section-header {
 
 section#zu-shop {
   h3 {
+    margin: 92px 0 16px 0;
     text-align: center;
   }
-  p {
+  p.zu-paragraph-subheader {
+    margin: 0 0 62px 0;
     text-align: center;
     font-weight: 300;
     @include prefix(3);
@@ -405,30 +427,54 @@ section#zu-shop {
     li.zu-shop-tile {
       height: 691px;
       @include span-columns(4, 12);
+      a.zu-shop-tile-link {
+        color: $font-body-color;
+        > img {
+          margin: 0 0 4px 0;
+        }
+      }
+      a.zu-shop-tile-link:hover {
+        > img {
+          @include opacity(0.66);
+        }
+      }
       .zu-shop-tile-header {
         display: block;
         float: left;
         width: 100%;
+        height: 51px;
         .zu-shop-tile-name {
           display: block;
           float: left;
-          font-family: $serif-font;
           font-size: 42px;
           line-height: 40px;
+          font-weight: 300;
           span {
             font-size: 14px;
+            font-weight: 900;
             color: $red-2;
           }
         }
         .zu-shop-tile-price {
           display: block;
           float: right;
-          font-family: $serif-font;
           font-size: 24px;
           line-height: 40px;
           text-align: right;
+          font-weight: 300;
           position: relative;
           top: 7px;
+        }
+        .zu-shop-tile-price.zu-shop-tile-price-sale {
+          color: $red-2;
+          span {
+            width: 100%;
+            font-size: 14px;
+            color: $font-body-color;
+            text-decoration: line-through;
+            position: absolute;
+            top: 19px;
+          }
         }
       }
       .zu-shop-tile-subheader {
@@ -439,7 +485,7 @@ section#zu-shop {
         line-height: 30px;
         font-weight: 300;
           position: relative;
-          top: -5px;
+          top: -7px;
       }
     }
     li.zu-shop-tile:nth-child(3n) {
