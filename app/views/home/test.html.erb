@@ -3,18 +3,24 @@
   $(document).ready(function(){
 
     $("#zu-slide-wizard>li").each(function(){
-      var self = $(this);
       $("#zu-customizer-dots").append("<span>&bull;</span>");
-      $(".zu-form-selector li", self).click(function(){
 
-        self.find(".selected").removeClass("selected");
-        self.find(".zu-wizard-check").remove();
+      $(".zu-form-selector", this).each(function(){
+        var self = $(this);
+        
+        self.after("<input type=\"hidden\" name=\""+self.attr("form-name")+"\" value=\"\" />");
 
-        $(this).addClass("selected");
-        $(this).append( $("<i class=\"ss-icon ss-icon zu-wizard-check\">check</i>") );
+        $("li", this).click(function(){
+          self.find(".selected").removeClass("selected");
+          self.find(".zu-wizard-check").remove();
 
-        self.find("input[type=hidden]").val( $.trim( $(this).clone().children().remove().end().text() ) );
-      }).first().click();
+          $(this).addClass("selected");
+          $(this).append( $("<i class=\"ss-icon ss-icon zu-wizard-check\">check</i>") );
+
+          $("input[name='"+self.attr("form-name")+"']").val( $.trim( $(this).clone().children().remove().end().text() ) );
+        }).first().click();
+      });
+
     });
 
 
@@ -44,7 +50,6 @@
 
       // TODO:
       // form validations
-
 
       the_cart.items.push({
         product_id: <%= params[:product_id].present? ? params[:product_id] : 1 %>,
@@ -103,9 +108,8 @@
       <ul id="zu-slide-wizard">
 
         <%= render "customizer/notch" %>
-        <%= render "customizer/notch" %>
-        <%= render "customizer/notch" %>
-        <%= render "customizer/notch" %>
+        <%= render "customizer/lining" %>
+        <%= render "customizer/monogram" %>
 
       </ul>
 
