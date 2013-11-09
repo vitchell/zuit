@@ -50,11 +50,20 @@
 /* Color Theme */
 /************************************************/
 
-$font-header-color: #70747d;
-$font-body-color: #878a91;
+$font-header-color: #333333;
+$font-body-color: #404040;
+
+$red-1: #942b30;
+$red-2: #e03c46;
+$red-3: #f58180;
+$red-4: #ffa2a1;
+$teal-1: #194e5a;
+$teal-2: #5f9ba8;
+$teal-3: #8fd1e0;
+
+$light-grey: #ebebeb;
 
 $white: #ffffff;
-
 
 
 /* Media Size Breakpoints */
@@ -95,8 +104,8 @@ $grid-padding: 0;
 /* Font Stacks */
 /************************************************/
 
-$serif-font: 'Prata', 'Georgia', 'Times New Roman', serif;
-$sans-serif-font: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$serif-font: 'Abril Fatface', 'Georgia', 'Times New Roman', serif;
+$sans-serif-font: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 $symbolset-standard: "SSStandard";
 $symbolset-symbolicons: "SSSymbolicons";
@@ -137,29 +146,17 @@ h1, h2, h3, h4, h5, h6 {}
 
 h1 {
   font-family: $serif-font;
-  font-size: 84px;
-  line-height: 100px;
+  font-size: 60px;
+  line-height: 80px;
   color: $font-header-color;
-  @include screen-format(nano) {
-    font-size: 64px;
-    line-height: 80px;
-  }
 }
 h2 {
-  font-family: $serif-font;
-  font-size: 50px;
-  line-height: 70px;
-  color: $font-header-color;
-  @include screen-format(nano) {
-    font-size: 40px;
-    line-height: 60px;
-  }
-}
-h3 {
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 300;
-  line-height: 50px;
+  line-height: 40px;
+  color: $font-header-color;
 }
+h3 {}
 h4 {}
 h5 {}
 h6 {}
@@ -257,13 +254,13 @@ button:hover {
   @include opacity(.66);
 }
 
-.ns-button:focus,
+.zu-button:focus,
 input[type="submit"]:focus,
 button:focus {
   outline: none;
 }
 
-.ns-button:before,
+.zu-button:before,
 input[type="submit"]:before,
 button:before {
   position: absolute;
@@ -273,6 +270,104 @@ button:before {
   left: 0;
   content: '';
 }
+
+
+
+
+
+
+
+
+
+
+#zuit {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  > nav,
+  > section {
+    display: block;
+    float: left;
+    width: 100%;
+    .zu-container {
+      display: block;
+      padding: 0 20px;
+      margin: 0 auto;
+      @include legacy-pie-clearfix;
+      @include screen-format(monitor) {
+        width: $monitor-breakpoint - 40px; // The subtraction of 40px accounts for the container padding.
+      }
+    }
+  }
+}
+
+section#zu-top-bar {
+  font-size: 12px;
+  border-bottom: 1px solid $light-grey;
+  #zu-top-bar-blurb {
+    display: block;
+    float: left;
+  }
+  #zu-top-bar-session {
+    display: block;
+    float: right;
+  }
+}
+nav#zu-navigation {
+  text-align: center;
+  a#zu-home-logo {
+    margin: 0 auto;
+  }
+  ul#zu-menu {
+    margin: 0 auto;
+    font-size: 14px;
+    line-height: 20px;
+    text-transform: uppercase;
+    > li {
+      display: inline-block;
+      margin: 0 20px 20px 0;
+    }
+    > li:after {
+      padding: 0 0 0 24px;
+      content: "•";
+    }
+    > li:last-child {
+      margin: 0;
+    }
+    > li:last-child:after {
+      padding: 0;
+      content: none;
+    }
+  }
+}
+
+section#zu-section-header {
+  text-align: center;
+  h1 {
+    @include prefix(5);
+    @include span-columns(7 omega, 12);
+    span {
+      color: $red-3;
+    }
+  }
+  h2 {
+    @include prefix(5);
+    @include span-columns(7 omega, 12);
+  }
+  p {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+    @include prefix(5);
+    @include span-columns(7 omega, 12);
+  }
+}
+
+
+
+
+
+
 
 
 
