@@ -49,7 +49,8 @@
       // form validations
 
       the_cart.items.push({
-        product_id: <%= params[:product_id].present? ? params[:product_id] : 1 %>,
+        product_id: <%= defined?(@product) ? @product.id : 1 %>,
+        product_name: "<%= defined?(@product) ? @product.name : "The Kylie Suit" %>",
         customizations: parseInputs( $("#zu-customizer").serializeObject() )
       });
 

@@ -1,14 +1,18 @@
 <script>
 $(document).ready(function(){
+  var t = $("#zu-row-template").html();
+
   $.each(the_cart.items, function(i, v){
-    $("#zu-cart").append(
-      "<li>Product ID:" + 
-      this.product_id+
-      " <br />Customizations:"+
-      JSON.stringify(this.customizations)+
-      "<br /><a href='#" + i +"' class=\"zu-delete\"><i class=\"ss-icon ss-icon\">delete</i></a> " +
-      "</li>"
-    );
+    console.log(i,v)
+    $("#zu-cart-items").append( t.format(
+      this.product_name, 
+      "399.99",
+      this.customizations.customizations.Jacket.Lapels,
+      this.customizations.customizations.Jacket.Vents,
+      this.customizations.customizations.Jacket.Buttons,
+      this.customizations.customizations.Jacket.Lining,
+      this.customizations.customizations.Jacket.Monogram.Monogram1 + "<br/>" +  this.customizations.customizations.Jacket.Monogram.Monogram2
+    ));
   });
 
   $(".zu-delete").click(function(e){
@@ -19,9 +23,143 @@ $(document).ready(function(){
     e.preventDefault();
     return false;
   });
+
 });
 </script>
 
-<ul id="zu-cart">
+<div id="zu-cart">
 
-</ul>
+  <div class="zu-container">
+
+    <h4>My Shopping Bag</h4>
+    <p class="zu-paragraph-subsubheader">Our 2013 Fall Collection is impeccably tailored to suit any body type. Choose from a variety of options, such as lapel style, number of buttons, skirt or pant bottoms, and fabric lining. Offered at a great price.</p>
+
+    <ul id="zu-cart-items">
+
+
+    </ul>
+    <!-- #zu-cart-items -->
+
+    <div id="zu-cart-info">
+
+      <ul id="zu-cart-receipt">
+        <li>
+          <strong>Subtotal:</strong>
+          <span>$399.90</span>
+        </li>
+        <li>
+          <strong>Shipping:</strong>
+          <span>$39.90</span>
+        </li>
+        <li>
+          <strong>Total:</strong>
+          <span>$439.80</span>
+        </li>
+      </ul>
+      <!-- #zu-cart-receipt -->
+
+      <a id="zu-cart-order" class="zu-button" href="#zu-sizer">Place Order</a><!-- #zu-cart-order -->
+      
+      <div id="zu-cart-shipping">
+        <div class="zu-cart-address-header">
+          Shipping Address:
+          <a href="#">Change.</a>
+        </div>
+        <!-- .zu-cart-address-header -->
+        <ul class="zu-cart-address">
+          <li>ATDC</li>
+          <li>75 5th Street Northwest</li>
+          <li>Suite #200</li>
+          <li>Atlanta, Georgia 30308</li>
+        </ul>
+        <!-- .zu-cart-address -->
+      </div>
+      <!-- #zu-cart-shipping -->
+
+      <div id="zu-cart-billing">
+        <div class="zu-cart-address-header">
+          Billing Address:
+          <a href="#">Change.</a>
+        </div>
+        <!-- .zu-cart-address-header -->
+        <ul class="zu-cart-address">
+          <li>ATDC</li>
+          <li>75 5th Street Northwest</li>
+          <li>Suite #200</li>
+          <li>Atlanta, Georgia 30308</li>
+        </ul>
+        <!-- .zu-cart-address -->
+      </div>
+      <!-- #zu-cart-billing -->
+
+    </div>
+    <!-- #zu-cart-info -->
+
+  </div>
+  <!-- .zu-container -->
+
+</div>
+<!-- #zu-cart -->
+
+
+
+
+
+
+<script type="text/template" id="zu-row-template">
+<li>
+
+  <div class="zu-cart-item-left">
+
+    <div class="zu-cart-item-title">
+      <div class="zu-cart-item-name">
+        {0}
+      </div>
+      <div class="zu-cart-item-price">
+        ${1}
+      </div>
+    </div>
+
+    <ul class="zu-cart-item-customizations">
+      <li>
+        <span class="zu-cart-item-customize-label">Lapels:</span>
+        <span class="zu-cart-item-customize-value">{2}</span>
+        <span class="zu-cart-item-customize-option"><a href="#">Reconfigure option.</a></span>
+      </li>
+      <li>
+        <span class="zu-cart-item-customize-label">Vents:</span>
+        <span class="zu-cart-item-customize-value">{3}</span>
+        <span class="zu-cart-item-customize-option"><a href="#">Reconfigure option.</a></span>
+      </li>
+      <li>
+        <span class="zu-cart-item-customize-label">Buttons:</span>
+        <span class="zu-cart-item-customize-value">{4}</span>
+        <span class="zu-cart-item-customize-option"><a href="#">Reconfigure option.</a></span>
+      </li>
+      <li>
+        <span class="zu-cart-item-customize-label">Lining:</span>
+        <span class="zu-cart-item-customize-value">{5}</span>
+        <span class="zu-cart-item-customize-option"><a href="#">Reconfigure option.</a></span>
+      </li>
+      <li>
+        <span class="zu-cart-item-customize-label">Monogram:</span>
+        <span class="zu-cart-item-customize-value">{6}</span>
+        <span class="zu-cart-item-customize-option"><a href="#">Reconfigure option.</a></span>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="zu-cart-item-right">
+    <input id="zu-cart-item-quantity" type="text" value="1"/>
+    <label for="zu-cart-item-quantity">Quantity:</label>
+  </div>
+
+</li>
+
+</script>
+
+
+<%= render "/home/sizer" %>
+
+

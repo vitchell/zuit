@@ -19,14 +19,14 @@
 $(document).ready(function(){
   $("#zu-shopping-bag-count").text( " ("+the_cart.items.length+")");
   $("#zu-section-item-customize").leanModal({ overlay : 0.75 });
-  $("#zu-open-sizer").leanModal({ top : 20, overlay : 0.75 });
+  $("#zu-open-sizer, #zu-cart-order").leanModal({ top : 20, overlay : 0.75 });
 });
 
 $.cookie.json = true;
 var the_cart = $.cookie("shopping_cart");
 var the_sizes = $.cookie("sizing_values");
 
-if( the_cart == null ) the_cart = { items: [] };
+if( the_cart == null || the_cart.items == null ) the_cart = { items: [] };
 if( the_sizes == null ) the_sizes = { };
 
 $.fn.serializeObject = function(){
@@ -46,7 +46,15 @@ $.fn.serializeObject = function(){
   return o;
 };
 
-
+String.prototype.format = function() {
+  var args = arguments;
+  return this.replace(/{(\d+)}/g, function(match, number) { 
+    return typeof args[number] != 'undefined'
+      ? args[number]
+      : match
+    ;
+  });
+};
 
 function parseInputs(data) {
   var ret = {};
