@@ -1,0 +1,163 @@
+<script>
+
+  $(document).ready(function(){
+
+    $("#zu-customize-forms>li").each(function(){
+
+      $(".zu-custom-options", this).each(function(){
+        var self = $(this);
+        
+        self.after("<input type=\"hidden\" name=\""+self.attr("form-name")+"\" value=\"\" />");
+
+        $("li", this).click(function(){
+          self.find(".zu-custom-current-option").removeClass("zu-custom-current-option");
+          $(this).addClass("zu-custom-current-option");
+
+          $("input[name='"+self.attr("form-name")+"']").val( $.trim( $(this).find(".zu-custom-option-label").text() ) );
+        }).first().click();
+      });
+
+    });
+
+    activatePaneByIndex( 0 );
+
+
+    $(".zu-change-step-forward").click(function(e){
+      var href = $(this).attr("href");
+      if( href == "#order" ){
+        $("#zu-customizer").submit();
+      }else{
+        var index = parseInt( href.replace("#", "") );
+        activatePaneByIndex( index );
+
+        e.preventDefault();
+        return false;        
+      }
+
+    });
+
+    $("#zu-customize-steps>li").click(function(e){
+      var index = $("#zu-customize-steps>li").index( this );
+      activatePaneByIndex( index )
+    });
+
+
+    $("#zu-customizer").submit(function(e){
+      var valid = true;
+
+      // TODO:
+      // form validations
+
+      the_cart.items.push({
+        product_id: <%= params[:product_id].present? ? params[:product_id] : 1 %>,
+        customizations: parseInputs( $("#zu-customizer").serializeObject() )
+      });
+
+      $.cookie("shopping_cart", the_cart);
+
+      document.location = "/cart";
+
+      e.preventDefault();
+      return false;
+    });
+
+  });
+
+  var activatePaneByIndex = function( index ){
+    var size = $("#zu-customize-steps>li").length;
+    var temp_cart = parseInputs( $("#zu-customizer").serializeObject() );
+
+    $("#zu-customize-forms>li.zu-custom-active-form").removeClass("zu-custom-active-form");
+    $("#zu-customize-forms>li").eq(index).addClass("zu-custom-active-form");
+
+    var offset = index * 932;
+    $("#zu-customize-forms").animate({left: "-"+offset+"px" }, 400, "linear");
+
+    $("#zu-customize-current-step").attr("id", "");
+    $("#zu-customize-steps>li").eq(index).attr("id", "zu-customize-current-step");
+
+    $("#zu-customize-review").html( recursiveThing( temp_cart.customizations.Jacket ) );
+
+
+  }
+
+  var recursiveThing = function(obj){
+    var tmp = "";
+    for( var key in obj ){
+      if (obj.hasOwnProperty(key)) {
+        if( typeof obj[key] == "string" ){
+          tmp += key + ": " + obj[key] + "<br />";  
+        }else{
+          tmp += recursiveThing( obj[key] )
+        }
+        
+      }
+    }
+    return tmp;
+  }
+
+</script>
+
+
+<div id="zu-customize-item" style="display: none;">
+
+
+
+  <ul id="zu-customize-steps">
+    <li id="zu-customize-current-step">Step 1:<strong>Lapels</strong></li><!-- #zu-customize-current-step -->
+    <li>Step 2:<strong>Vents</strong></li>
+    <li>Step 3:<strong>Buttons</strong></li>
+    <li>Step 4:<strong>Lining</strong></li>
+    <li>Step 5:<strong>Initials</strong></li>
+    <li>Step 6:<strong>Order</strong></li>
+  </ul>
+  <!-- #zu-customize-steps -->
+
+  <form id="zu-customizer" style="width: 932px; overflow:hidden;">
+    <ul id="zu-customize-forms">
+
+      <%= render "customizer/notch" %>
+      <%= render "customizer/vents" %>
+      <%= render "customizer/buttons" %>
+      <%= render "customizer/lining" %>
+      <%= render "customizer/monogram" %>
+
+      <li>
+
+        <div id="zu-customize-review">
+
+        </div>
+
+
+        <h1>Review your order!</h1>
+        <p>Notch lapels are the most widely used and most versatile. Peak lapels are for a touch of flair. Slim lapels are more fashion forward, noticeably slimmer than the average suit. We recommend notch or peak lapels for the modern woman.</p>
+
+        <div id="zu-change-step">
+          <a class="zu-change-step-forward" href="#order">Add to your Shopping Bag!</a>
+        </div>
+        <!-- #zu-change-step -->
+
+      </li>
+    </ul>
+  </form
+  
+
+</div>
+<!-- #zu-customize-item -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
