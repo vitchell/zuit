@@ -48,9 +48,6 @@ $.fn.serializeObject = function(){
 
 
 
-
-
-
 function parseInputs(data) {
   var ret = {};
 retloop:
