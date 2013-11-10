@@ -1027,8 +1027,14 @@ section#zu-shop {
     }
   }
 
-  h4 {}
+  h4 {
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 68px 0 18px 0;
+  }
   p.zu-paragraph-subsubheader {
+    margin: 0 0 35px 0;
     font-weight: 300;
     -webkit-font-smoothing: subpixel-antialiased;
     @include prefix(3);
@@ -1038,18 +1044,22 @@ section#zu-shop {
 
   ul#zu-cart-items {
     text-align: left;
+    border-bottom: 1px solid $light-grey;
     @include span-columns(8, 12);
     > li {
       display: block;
       float: left;
       width: 100%;
+      padding: 33px 10px 0 10px;
       border-top: 1px solid $light-grey;
+      @include box-sizing(border-box);
       .zu-cart-item-left {
         @include span-columns(5, 8);
         .zu-cart-item-title {
           display: block;
           float: left;
           width: 100%;
+          margin: 0 0 16px 0;
           .zu-cart-item-name {
             float: left;
             font-size: 30px;
@@ -1061,20 +1071,23 @@ section#zu-shop {
             font-size: 18px;
             line-height: 40px;
             font-weight: 300;
+            text-align: right;
           }
         }
         ul.zu-cart-item-customizations {
           display: block;
           float: left;
           width: 100%;
+          margin: 0 0 30px 0;
           > li {
             display: block;
             float: left;
             width: 100%;
-            padding: 0 10px;
+            padding: 5px 10px 4px 10px;
             border-top: 1px solid $light-grey;
             font-size: 14px;
             line-height: 30px;
+            @include box-sizing(border-box);
             span.zu-cart-item-customize-label {
               display: block;
               float: left;
@@ -1084,7 +1097,7 @@ section#zu-shop {
             span.zu-cart-item-customize-value {
               display: block;
               float: left;
-              width: 245px;
+              width: 205px;
             }
             span.zu-cart-item-customize-option {
               display: block;
@@ -1099,6 +1112,17 @@ section#zu-shop {
       }
       .zu-cart-item-right {
         @include span-columns(3 omega, 8);
+        > label {
+          float: right;
+          margin: 0 15px 0 0;
+          font-size: 16px;
+          line-height: 50px;
+        }
+        > input {
+          float: right;
+          width: 102px;
+          text-align: right;
+        }
       }
 
     }
@@ -1106,21 +1130,55 @@ section#zu-shop {
 
   #zu-cart-info {
     text-align: left;
+    font-size: 14px;
+    line-height: 30px;
     @include prefix(1);
     @include span-columns(3 omega, 12);
     ul#zu-cart-receipt {
+      padding: 10px 20px;
+      margin: 0 0 10px 0;
+      background: #f6f6f6;
+      line-height: 40px;
+      @include box-sizing(border-box);
+      @include span-columns(3 omega, 3);
       > li {
         > strong {}
-        > span {}
+        > span {
+          float: right;
+        }
+      }
+      > li:last-child {
+        padding: 4px 0 0 0;
+        margin: 5px 0 0 0;
+        border-top: 1px solid $light-grey;
       }
     }
-    a#zu-cart-order {}
-    #zu-cart-shipping {}
-    #zu-cart-billing {}
+    a#zu-cart-order {
+      width: 100%;
+      margin: 0 0 48px 0;
+      text-align: center;
+      background: $teal-3;
+      border-color: $teal-2;
+      @include box-sizing(border-box);
+    }
     .zu-cart-address-header {
-      > a {}
+      padding: 0 0 2px 0;
+      margin: 0 0 11px 0;
+      font-size: 12px;
+      line-height: 25px;
+      text-transform: uppercase;
+      color: $font-header-color;
+      font-weight: 700;
+      border-bottom: 1px solid $light-grey;
+      > a {
+        float: right;
+        text-transform: none;
+        font-weight: 400;
+      }
     }
     ul.zu-cart-address {
+      margin: 0 0 36px 0;
+      line-height: 25px;
       li {}
     }
   }
