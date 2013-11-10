@@ -69,9 +69,8 @@
 
     $("#zu-customize-forms>li.zu-custom-active-form").removeClass("zu-custom-active-form");
     $("#zu-customize-forms>li").eq(index).addClass("zu-custom-active-form");
-
-    var offset = index * 932;
-    $("#zu-customize-forms").animate({left: "-"+offset+"px" }, 400, "linear");
+  
+    $("#zu-customize-forms").animate({left: "-"+(index * 932)+"px" }, 400, "linear");
 
     $("#zu-customize-current-step").attr("id", "");
     $("#zu-customize-steps>li").eq(index).attr("id", "zu-customize-current-step");
