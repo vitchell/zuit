@@ -3,7 +3,6 @@ $(document).ready(function(){
   var t = $("#zu-row-template").html();
 
   $.each(the_cart.items, function(i, v){
-    console.log(i,v)
     $("#zu-cart-items").append( t.format(
       this.product_name, 
       "399.99",
@@ -14,6 +13,8 @@ $(document).ready(function(){
       this.customizations.customizations.Jacket.Monogram.Monogram1 + "<br/>" +  this.customizations.customizations.Jacket.Monogram.Monogram2
     ));
   });
+
+  $.cookie("shopping_cart", null);
 
   $(".zu-delete").click(function(e){
     var index = parseInt( $(this).attr("href").replace("#", "") );
