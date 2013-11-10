@@ -752,6 +752,7 @@ section#zu-shop {
     float: left;
     width: 442px;
     height: 248px;
+    margin: 0 0 37px 0;
     video {
       display: block;
       float: left;
@@ -952,12 +953,12 @@ section#zu-shop {
       }
     }
     > li:hover,
-    > li#zu-custom-current-option,
+    > li.zu-custom-current-option,
      >li.zu-custom-current-option {
       border: 2px solid $light-grey;
       @include border-radius(5px);
     }
-    > li#zu-custom-current-option {
+    > li.zu-custom-current-option {
       border-color: $teal-3;
     }
   }
