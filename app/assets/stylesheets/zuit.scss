@@ -201,6 +201,7 @@ input,
 textarea,
 select {
   display: inline-block;
+  margin: 0;
   font-family: $font-header-color;
   font-size: 20px;
   line-height: 30px;
@@ -933,7 +934,7 @@ section#zu-shop {
     }
   }
   ul#zu-custom-options, 
-   ul.zu-custom-options {
+  ul.zu-custom-options {
     display: inline-block;
     margin: 0 auto 10px auto;
     > li.zu-custom-option {
@@ -963,6 +964,16 @@ section#zu-shop {
     }
   }
 
+  .zu-monogram-form {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px 0;
+    position: relative;
+    top: -40px;
+    > label {
+      margin: 0 10px 0 0;
+    }
+  }
 
   #zu-customizer{
     height: 492px;
@@ -970,7 +981,6 @@ section#zu-shop {
     overflow: hidden;
     position: relative;
     white-space: nowrap;
-
     ul#zu-customize-forms {
       display: block;
       float: left;
