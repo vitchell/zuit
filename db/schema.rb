@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131109222100) do
+ActiveRecord::Schema.define(version: 20131109235737) do
 
   create_table "carts", force: true do |t|
     t.integer  "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20131109222100) do
     t.string   "skirt_length"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "paid"
   end
 
   create_table "measurements", force: true do |t|

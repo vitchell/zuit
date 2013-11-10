@@ -13,6 +13,11 @@ class CustomizationsController < ApplicationController
   # GET /customizations/new
   def new
     @customization = Customization.new
+    @product_id = params[:product_id]
+
+    #just for testing
+    @product_id = 1
+
   end
 
   # GET /customizations/1/edit
@@ -23,11 +28,14 @@ class CustomizationsController < ApplicationController
   def create
     @customization = Customization.new(customization_params)
 
+    #Rails.logger.info " Custom = #{params['customization']}"
+
     if @customization.save
       redirect_to @customization, notice: 'Customization was successfully created.'
     else
       render action: 'new'
     end
+    
   end
 
   # PATCH/PUT /customizations/1

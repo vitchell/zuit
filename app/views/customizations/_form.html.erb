@@ -11,51 +11,124 @@
     </div>
   <% end %>
 
+   
   <div class="field">
     <%= f.label :order_id %><br>
     <%= f.number_field :order_id %>
   </div>
+
   <div class="field">
-    <%= f.label :product_id %><br>
-    <%= f.number_field :product_id %>
+    <h2><%= f.label :jacket_lapel %></h2><br>
+
+    <%= image_tag("customization/jacket_lapel/notch.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_lapel, 'Notch'%> Notch
+
+    <%= image_tag("customization/jacket_lapel/notch_slim.png",:size => "180x180", :class => 'img_about') %>
+    <%= f.radio_button :jacket_lapel, 'Notch Slim'%> Notch Slim
+
+    <%= image_tag("customization/jacket_lapel/peak.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_lapel, 'Peak'%> Peak
+
+    <%= image_tag("customization/jacket_lapel/peak_wide.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_lapel, 'Peak Wide'%> Peak Wide<br>
+  </div>
+
+   <div class="field">
+    <%= f.hidden_field :product_id , :value => @product_id %>
+  </div>
+
+
+  <div class="field">
+    <h2><%= f.label :jacket_button %></h2><br>
+    <%= image_tag("customization/jacket_buttons/one.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_button, 'One'%> One
+
+    <%= image_tag("customization/jacket_buttons/two.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_button, 'Two'%> Two
+
+    <%= image_tag("customization/jacket_buttons/three.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_button, 'Three'%> Three
+
+    <%= image_tag("customization/jacket_buttons/double_breasted.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_button, 'Double Breasted'%> Double Breasted<br>
+  </div>
+
+
+  <div class="field">
+    <h2><%= f.label :jacket_pocket %></h2><br>
+    <%= image_tag("customization/jacket_pockets/no_pocket_flaps.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_pocket, 'No Pocket Flaps'%> No Pocket Flaps
+
+    <%= image_tag("customization/jacket_pockets/no_pocket_flaps_slanted.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_pocket, 'No Pocket Flaps Slanted'%> No Pocket Flaps Slanted
+
+    <%= image_tag("customization/jacket_pockets/pocket_flaps.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_pocket, 'Pocket Flaps'%>Pocket Flaps
+
+    <%= image_tag("customization/jacket_pockets/pocket_flaps_slanted.png",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_pocket, 'Pocket Flaps Slanted'%>Pocket Flaps Slanted<br>
+  </div>
+
+
+  <div class="field">
+    <h2><%= f.label :jacket_lining %></h2><br>
+    <%= image_tag("customization/jacket_lining/beige_swatch.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_lining, 'Beige Swatch'%> Beige Swatch
+
+    <%= image_tag("customization/jacket_lining/brown_swatch.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_lining, 'Brown Swatch'%> Brown Swatch
+
+    <%= image_tag("customization/jacket_lining/gray_swatch.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_lining, 'Gray Swatch'%> Gray Swatch
+
+    <%= image_tag("customization/jacket_lining/purple_swatch.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :jacket_lining, 'Purple Swatch'%> Purple Swatch<br>
+  </div>
+
+
+  <div class="field">
+    <h2><%= f.label :jacket_monogram %><br></h2>
+    <%= image_tag("customization/jacket_monogram/timesroman.png",:size => "60x60",:class => 'img_about') %>
+    <%= f.text_field :jacket_monogram %><br>
+  </div>
+
+
+  <div class="field">
+    <h2><%= f.label :pant_type %></h2><br>
+    <%= image_tag("customization/pant_type/skinny.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :pant_type, 'Skinny'%> Skinny
+
+    <%= image_tag("customization/pant_type/straight.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :pant_type, 'Straight'%> Straight<br>
+
   </div>
   <div class="field">
-    <%= f.label :jacket_lapel %><br>
-    <%= f.text_field :jacket_lapel %>
+    <h2><%= f.label :pant_length %></h2><br>
+    <%= image_tag("customization/pant_type/full.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :pant_length, 'Full'%> Full
+
+    <%= image_tag("customization/pant_type/ancle.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :pant_length, 'Ancle'%> Ancle<br>
+  </div>
+
+
+  <div class="field">
+    <h2><%= f.label :skirt_type %></h2><br>
+    <%= image_tag("customization/skirt_type/pencil.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :skirt_type, 'Pencil'%> Pencil
+
+    <%= image_tag("customization/skirt_type/a_line.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :skirt_type, 'A Line'%> A Line<br>
   </div>
   <div class="field">
-    <%= f.label :jacket_button %><br>
-    <%= f.text_field :jacket_button %>
-  </div>
-  <div class="field">
-    <%= f.label :jacket_pocket %><br>
-    <%= f.text_field :jacket_pocket %>
-  </div>
-  <div class="field">
-    <%= f.label :jacket_lining %><br>
-    <%= f.text_field :jacket_lining %>
-  </div>
-  <div class="field">
-    <%= f.label :jacket_monogram %><br>
-    <%= f.text_field :jacket_monogram %>
-  </div>
-  <div class="field">
-    <%= f.label :pant_type %><br>
-    <%= f.text_field :pant_type %>
-  </div>
-  <div class="field">
-    <%= f.label :pant_length %><br>
-    <%= f.text_field :pant_length %>
-  </div>
-  <div class="field">
-    <%= f.label :skirt_type %><br>
-    <%= f.text_field :skirt_type %>
-  </div>
-  <div class="field">
-    <%= f.label :skirt_length %><br>
-    <%= f.text_field :skirt_length %>
+    <h2><%= f.label :skirt_length %></h2><br>
+    <%= image_tag("customization/skirt_length/above_knee.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :skirt_length, 'Above Knee'%> Above Knee
+
+    <%= image_tag("customization/skirt_length/below_knee.jpg",:size => "180x180",:class => 'img_about') %>
+    <%= f.radio_button :skirt_length, 'Below Knee'%> Below Knee<br>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Add to Bag'%>
   </div>
 <% end %>
