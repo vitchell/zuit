@@ -18,7 +18,7 @@
 
 $(document).ready(function(){
   $("#zu-shopping-bag-count").text( " ("+the_cart.items.length+")");
-  $("#zu-section-item-customize").leanModal();
+  $("#zu-section-item-customize").leanModal({ overlay : 0.75 });
 });
 
 $.cookie.json = true;

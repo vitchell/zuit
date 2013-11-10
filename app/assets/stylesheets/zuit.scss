@@ -672,21 +672,25 @@ section#zu-shop {
   background: $white;
   text-align: center;
   h1 {
+    margin: 0 0 7px 0;
+    font-size: 48px;
     font-family: $sans-serif-font;
     font-weight: 100;
     -webkit-font-smoothing: subpixel-antialiased;
   }
   p {
     display: inline-block;
-    margin: 0 auto;
+    margin: 0 auto 47px 0;
     width: 576px;
     text-align: left;
     font-weight: 300;
+    -webkit-font-smoothing: subpixel-antialiased;
   }
   #zu-change-step {
     display: block;
     float: left;
     width: 100%;
+    margin: 0 0 31px 0;
     a.zu-change-step-backward,
     a.zu-change-step-forward {
       font-size: 24px;
@@ -731,9 +735,14 @@ section#zu-shop {
         font-weight: 900;
       }
     }
+    > li:hover,
     > li#zu-customize-current-step {
       background: $teal-3;
       color: #ffffff;
+      cursor: default;
+    }
+    > li:hover {
+      cursor: pointer;
     }
     > li:last-child {
       float: right;
@@ -742,12 +751,12 @@ section#zu-shop {
   }
   ul#zu-custom-options {
     display: inline-block;
-    margin: 0 auto 5px auto;
+    margin: 0 auto 10px auto;
     > li.zu-custom-option {
       display: block;
       float: left;
       padding: 5px 18px 15px 18px;
-      margin: 0 20px;
+      margin: 0 10px;
       border: 2px solid $white;
       img {
         margin: 0 0 6px 0;
@@ -768,10 +777,16 @@ section#zu-shop {
 
 
 
+/****************************************************************************************************
+  7.  JS Widgets
+****************************************************************************************************/
 
+/* Lean Overlay */
+/************************************************/
 
-
-
+#lean_overlay {
+  background: $teal-2 !important;
+}
 
 
 
