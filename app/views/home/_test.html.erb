@@ -22,7 +22,7 @@
     activatePaneByIndex( 0 );
 
 
-    $(".zu-change-step-forward").click(function(e){
+    $(".zu-change-step-forward, .zu-change-step-backward").click(function(e){
       var href = $(this).attr("href");
       if( href == "#order" ){
         $("#zu-customizer").submit();
@@ -85,7 +85,7 @@
     for( var key in obj ){
       if (obj.hasOwnProperty(key)) {
         if( typeof obj[key] == "string" ){
-          tmp += key + ": " + obj[key] + "<br />";  
+          tmp += "<li><span>" + key + "</span> " + obj[key] + "</li>";  
         }else{
           tmp += recursiveThing( obj[key] )
         }
@@ -121,15 +121,13 @@
 
       <li>
 
-        <div id="zu-customize-review">
-
-        </div>
-
+        <ul id="zu-customize-review"></ul>
 
         <h1>Review your order!</h1>
         <p>Notch lapels are the most widely used and most versatile. Peak lapels are for a touch of flair. Slim lapels are more fashion forward, noticeably slimmer than the average suit. We recommend notch or peak lapels for the modern woman.</p>
 
         <div id="zu-change-step">
+          <a class="zu-change-step-backward" href="#4">Go back to: Initials</a>
           <a class="zu-change-step-forward" href="#order">Add to your Shopping Bag!</a>
         </div>
         <!-- #zu-change-step -->

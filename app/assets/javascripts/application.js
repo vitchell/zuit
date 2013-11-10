@@ -24,11 +24,10 @@ $(document).ready(function(){
 
 $.cookie.json = true;
 var the_cart = $.cookie("shopping_cart");
-if( the_cart == null ){
-  the_cart = {
-    items: []
-  };
-}
+var the_sizes = $.cookie("sizing_values");
+
+if( the_cart == null ) the_cart = { items: [] };
+if( the_sizes == null ) the_sizes = { };
 
 $.fn.serializeObject = function(){
   var o = {};
