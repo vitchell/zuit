@@ -675,8 +675,7 @@ section#zu-shop {
     margin: 0 0 7px 0;
     font-size: 48px;
     font-family: $sans-serif-font;
-    font-weight: 100;
-    -webkit-font-smoothing: subpixel-antialiased;
+    font-weight: 300;
   }
   p {
     display: inline-block;
@@ -759,6 +758,7 @@ section#zu-shop {
       padding: 5px 18px 15px 18px;
       margin: 0 10px;
       border: 2px solid $white;
+      cursor: pointer;
       img {
         margin: 0 0 6px 0;
       }
@@ -772,6 +772,9 @@ section#zu-shop {
     > li#zu-custom-current-option {
       border: 2px solid $light-grey;
       @include border-radius(5px);
+    }
+    > li#zu-custom-current-option {
+      border-color: $teal-3;
     }
   }
 }
