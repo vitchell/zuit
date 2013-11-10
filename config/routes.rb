@@ -6,5 +6,6 @@ Zuit::Application.routes.draw do
   get "cart"  => "home#cart"
   get "item"  => "home#item"
   get "added" => "home#upsell"
+  get "cartcut" => "home#cartcut"
 
 end

@@ -5,5 +5,8 @@ class HomeController < ApplicationController
 
   def item
   end
+
+  def cartcut
+  end
   
 end
