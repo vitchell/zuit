@@ -85,7 +85,7 @@
     for( var key in obj ){
       if (obj.hasOwnProperty(key)) {
         if( typeof obj[key] == "string" ){
-          tmp += "<li><span>" + key + "</span> " + obj[key] + "</li>";  
+          tmp += "<li><span>" + key + ":</span> " + obj[key] + "</li>";  
         }else{
           tmp += recursiveThing( obj[key] )
         }

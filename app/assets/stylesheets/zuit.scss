@@ -888,6 +888,18 @@ section#zu-shop {
     a.zu-change-step-forward:hover {
       text-decoration: none;
     }
+    a.zu-change-step-backward {
+      margin: 0 30px 0 0;
+    }
+  }
+  ul#zu-customize-review {
+    position: relative;
+    top: -20px;
+    > li {
+      > span {
+        font-weight: 700;
+      }
+    }
   }
   ul#zu-customize-steps {
     display: block;
