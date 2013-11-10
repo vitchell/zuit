@@ -700,7 +700,8 @@ section#zu-shop {
       text-decoration: underline;
       color: $red-2;
     }
-    a.zu-change-step:hover {
+    a.zu-change-step-backward:hover,
+    a.zu-change-step-forward:hover {
       text-decoration: none;
     }
   }
