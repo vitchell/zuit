@@ -931,7 +931,8 @@ section#zu-shop {
       margin: 0;
     }
   }
-  ul#zu-custom-options {
+  ul#zu-custom-options, 
+   ul.zu-custom-options {
     display: inline-block;
     margin: 0 auto 10px auto;
     > li.zu-custom-option {
@@ -951,7 +952,8 @@ section#zu-shop {
       }
     }
     > li:hover,
-    > li#zu-custom-current-option {
+    > li#zu-custom-current-option,
+     >li.zu-custom-current-option {
       border: 2px solid $light-grey;
       @include border-radius(5px);
     }
@@ -959,6 +961,31 @@ section#zu-shop {
       border-color: $teal-3;
     }
   }
+
+
+  #zu-customizer{
+    height: 492px;
+    width: 932px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+
+    ul#zu-customize-forms {
+      display: block;
+      float: left;
+      width: 100%;
+      overflow: visible;
+      white-space: nowrap;
+      position: relative;
+      > li {
+        white-space: normal;
+        display: inline-block;
+        width: 100%;
+      }
+    }
+  }
+
+
 }
 
 

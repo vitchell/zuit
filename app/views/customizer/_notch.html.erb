@@ -1,23 +1,46 @@
-<li>
-  
-  <h3>Jacket Lapels</h3>
-  <ul class="zu-form-selector" form-name="customizations[Jacket][Lapels]">
-    <li>
-      <%= image_tag "indochino_test.png" %><br />
-      Notch
-    </li>
-    <li>
-      <%= image_tag "indochino_test.png" %><br />
-      Notch Slim
-    </li>
-    <li>
-      <%= image_tag "indochino_test.png" %><br />
-      Peak
-    </li>
-  </ul>
+      <li class="zu-custom-active-form"> <!-- Lapels -->
+        <ul class="zu-custom-options" form-name="customizations[Jacket][Lapels]">
+          <li class="zu-custom-option">
+            <img src="<%= asset_path "lapel-notch-slim.png" %>" />
+            <div class="zu-custom-option-label">
+              Notch Slim
+            </div>
+            <!-- .zu-custom-option-label -->
+          </li>
+          <!-- #zu-custom-options-selected -->
+          <li class="zu-custom-option">
+            <img src="<%= asset_path "lapel-notch-wide.png" %>" />
+            <div class="zu-custom-option-label">
+              Notch Wide
+            </div>
+            <!-- .zu-custom-option-label -->
+          </li>
+          <!-- #zu-custom-options-selected -->
+          <li class="zu-custom-option">
+            <img src="<%= asset_path "lapel-peak-slim.png" %>" />
+            <div class="zu-custom-option-label">
+              Peak Slim
+            </div>
+            <!-- .zu-custom-option-label -->
+          </li>
+          <!-- #zu-custom-options-selected -->
+          <li class="zu-custom-option">
+            <img src="<%= asset_path "lapel-peak-wide.png" %>" />
+            <div class="zu-custom-option-label">
+              Peak Wide
+            </div>
+            <!-- .zu-custom-option-label -->
+          </li>
+          <!-- #zu-custom-options-selected -->
+        </ul>
+        <!-- #zu-customize-options -->
 
-  <div class="description">
-    <p>Notch lapels are the most widely used and most versatile. Peak lapels are for a touch of flair. Slim lapels are more fashion forward, noticeably slimmer than the average suit.</p>
-  </div>
+        <h1>Select your lapels.</h1>
+        <p>Notch lapels are the most widely used and most versatile. Peak lapels are for a touch of flair. Slim lapels are more fashion forward, noticeably slimmer than the average suit. We recommend notch or peak lapels for the modern woman.</p>
 
-</li>
+        <div id="zu-change-step">
+          <a class="zu-change-step-forward" href="#1">Go on to next step: Vents</a>
+        </div>
+        <!-- #zu-change-step -->
+      </li>
+
