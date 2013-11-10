@@ -215,7 +215,7 @@ input[type="email"],
 input[type="password"],
 textarea {
   padding: 8px 14px 10px 14px;
-  border: 1px solid $font-header-color;
+  border: 1px solid $light-grey;
   color: $font-body-color;
   @include box-sizing(border-box);
   @include border-radius(2px);
@@ -665,6 +665,188 @@ section#zu-shop {
 
 
 
+#zu-sizer {
+  width: 932px;
+  padding: 30px;
+  background: $white;
+  text-align: center;
+  h1 {
+    padding: 51px 0 20px 0;
+    margin: 0 0 28px 0;
+    font-size: 36px;
+    line-height: 50px;
+    font-weight: 300;
+    font-family: $sans-serif-font;
+    background: transparent image-url("logo-small.png") no-repeat center 18px;
+    border-bottom: 1px solid $light-grey;
+  }
+  #zu-sizer-save {
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 0 0 46px 0;
+    > a {
+      display: block;
+      width: 258px;
+      padding: 10px 0;
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 30px;
+      color: $white;
+      font-style: italic;
+      background: $teal-3;
+      background: transparent image-url("sizer-save-button.png") no-repeat 0 0;
+    }
+    > a:hover {
+      @include opacity(0.66);
+    }
+  }
+  #zu-sizer-form {
+    display: block;
+    float: left;
+    width: 100%;
+    padding: 40px 0 0 0;
+    margin: 0 0 31px 0;
+    > label {
+      display: inline-block;
+      margin: 0 15px 0 0;
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 300;
+      cursor: pointer;
+      position: relative;
+      top: -11px;
+    }
+    > input#zu-sizer-form-value {
+      display: inline-block;
+      width: 160px;
+      padding: 0 14px 0 14px;
+      margin: 0 10px 0 0;
+      font-size: 48px;
+      line-height: 68px;
+      font-weight: 700;
+      text-align: right;
+      @include box-sizing(border-box);
+    }
+    #zu-sizer-form-radio-buttons {
+      display: inline-block;
+      width: 137px;
+      position: relative;
+      top: 4px;
+      input[type="radio"] {
+        position: relative;
+        top: -2px;
+      }
+      span {
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: 700;
+      }
+    }
+  }
+  #zu-sizer-video {
+    display: block;
+    float: left;
+    width: 442px;
+    height: 248px;
+    video {
+      display: block;
+      float: left;
+      width: 442px;
+      height: 248px;
+    }
+  }
+  #zu-sizer-instructions {
+    display: block;
+    float: left;
+    width: 460px;
+    padding: 3px 0 0 30px;
+    text-align: left;
+    h3 {
+      width: 100%;
+      margin: 0 0 21px 0;
+      font-size: 30px;
+      line-height: 40px;
+      font-weight: 300;
+      font-family: $sans-serif-font;
+    }
+    p {
+      margin: 0 0 17px 0;
+      width: 100%;
+      font-weight: 300;
+    }
+    a#zu-sizer-next {
+      font-size: 24px;
+      line-height: 30px;
+      font-weight: 300;
+      font-style: italic;
+      text-decoration: underline;
+      color: $red-2;
+    }
+    a#zu-sizer-next:hover {
+      text-decoration: none;
+    }
+  }
+  ul#zu-sizer-menu {
+    display: block;
+    float: left;
+    padding: 0 0 0 40px;
+    > li {
+      display: block;
+      float: left;
+      width: 193px;
+      padding: 0 0 0 3px;
+      margin: 0 20px 5px 0;
+      border-left: 2px solid $teal-3;
+      font-size: 14px;
+      line-height: 30px;
+      cursor: pointer;
+      span.zu-sizer-menu-label {
+        display: block;
+        float: left;
+        width: 102px;
+        padding: 0 0 0 8px;
+        background: #e3f3f7;
+        text-align: left;
+      }
+      span.zu-sizer-menu-value {
+        display: block;
+        float: left;
+        width: 53px;
+        text-align: right;
+        background: #e3f3f7;
+      }
+      span.zu-sizer-menu-state {
+        display: block;
+        float: left;
+        width: 30px;
+        text-align: center;
+        background: #e3f3f7;
+      }
+    }
+    > li:hover,
+    > li#zu-sizer-menu-active {
+      span.zu-sizer-menu-label {
+        color: $white;
+        background: $teal-3;
+        font-weight: 700;
+      }
+      span.zu-sizer-menu-value {
+        color: $white;
+        background: $teal-3;
+        font-weight: 700;
+      }
+      span.zu-sizer-menu-state {
+        color: $white;
+        background: $teal-3;
+        font-weight: 700;
+      }
+    }
+  }
+}
 
 #zu-customize-item {
   width: 932px;
@@ -778,6 +960,19 @@ section#zu-shop {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
